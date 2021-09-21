@@ -3,6 +3,15 @@ body{
     background: white;
 }
 
-canvas{
-    background: aliceblue;
-}
+/* canvas{
+    background: rgb(255, 181, 113);
+} */
+
+.cell {
+    border: 1px solid gray;
+    min-width: 20px;
+    min-height: 20px;
+    display: inline-block;
+    margin-right: 2px;
+  }
+  
