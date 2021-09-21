@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    input {
+        width: "10%";
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Level Editor</title>
-    
+    <title>Level Editor</title>    
 </head>
 <body>
+    <div class="container"></div><!--THE CURSED GRID DRAWER-->
     <!--<canvas id="canvas"></canvas> Gotta draw the grid -->
-    <div class="container">
+    <form> 
+        <input type="text" id="HTMLColumns" name="HTMLColumns" placeholder="Columns"><!--column box-->
+        <input type="text" id="HTMLRows" name="HTMLRows" placeholder="Rows"><!--row box-->
+    </form>
+    <div class="row">
+        <input type="submit" value="Submit">
     </div>
     <script src="grid.js"></script> <!-- Main script for the editor -->
 </body>

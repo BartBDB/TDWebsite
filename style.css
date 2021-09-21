@@ -3,15 +3,28 @@ body{
     background: white;
 }
 
+#HTMLColumns, #HTMLRows{
+    margin-bottom: 4px;
+}
+
 /* canvas{
     background: rgb(255, 181, 113);
 } */
 
-.cell {
-    border: 1px solid gray;
-    min-width: 20px;
-    min-height: 20px;
-    display: inline-block;
-    margin-right: 2px;
+:root {
+    --grid-cols: 1;
+    --grid-rows: 1;
   }
   
+  #container {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+  }
+  
+  .grid-item {
+    padding: 1em;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
