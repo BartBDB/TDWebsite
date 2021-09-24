@@ -1,13 +1,26 @@
-const container = document.getElementById("container");
+let button = document.getElementById('gridbutton')
 
-function makeGrid(rows, cols) {
-    container.style.setProperty('--grid-rows', rows);
-    container.style.setProperty('--grid-cols', cols);
-    for (i = 0; i < (rows * cols); i++) {
-    let cell = document.createElement("div");
-    cell.innerText = (i + 1);
-    container.appendChild(cell).className = "grid-item";
-  };
-};
+button.addEventListener("click", ()=>{
+    let width = document.getElementById('widthfield').value
+    let height = document.getElementById('heightfield').value
+  
+    let divHolder = document.getElementById('grid')
 
-makeGrid(16, 16); //16 bij 16 is tijdelijk, hier komt de output van de invulboxes
+    let tilesize = 10;
+    let tileTotal = height * width;
+    //console.log(tileTotal);
+    for (let i = 0; i < tileTotal; i++)
+    {
+        let tile = document.createElement("div");
+        tile.className = 'tile';
+        tile.style.width = tilesize+'px';
+        tile.style.height = tilesize+'px';
+
+        tile.style.left = (i % width) * tilesize + 'px';
+        //console.log(newDiv.style.left);
+
+        tile.style.top = Math.floor(i / width) * tilesize + 'px';
+
+        divHolder.appendChild(tile);
+    }
+})

@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    input {
-        width: "10%";
-    }
-</style>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,15 +8,39 @@
     <title>Level Editor</title>    
 </head>
 <body>
-    <div class="container"></div><!--THE CURSED GRID DRAWER-->
-    <!--<canvas id="canvas"></canvas> Gotta draw the grid -->
-    <form> 
-        <input type="text" id="HTMLColumns" name="HTMLColumns" placeholder="Columns"><!--column box-->
-        <input type="text" id="HTMLRows" name="HTMLRows" placeholder="Rows"><!--row box-->
-    </form>
-    <div class="row">
-        <input type="submit" value="Submit">
+    <input type='text' id='widthfield' value='0'></input>
+    <!-- <input type='range' min='0' max='100' value='0' class='slider' id='widthfield'></input> -->
+    <!-- <p>Width: <span id="widthfieldnumber"></span></p> -->
+    <input type='text' id='heightfield' value='0'></input>
+    <!-- <input type='range' min='0' max='100' value='0' class='slider' id='heightfield'></input> -->
+    <!-- <p>Height: <span id="heightfieldnumber"></span></p> -->
+    <button id='gridbutton'>Generate grid</button>
+    <div id='grid'>
     </div>
-    <script src="grid.js"></script> <!-- Main script for the editor -->
+
+    <!--<script>
+        var slider = document.getElementById("widthfield");
+        var output = document.getElementById("widthfieldnumber");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function() {
+        output.innerHTML = this.value;
+        }
+
+        var slider2 = document.getElementById("heightfield");
+        var output2 = document.getElementById("heightfieldnumber");
+        output2.innerHTML = slider2.value;
+
+        slider2.oninput = function() {
+        output2.innerHTML = this.value;
+        }
+    </script> 
+    
+    SLIDER IMAGE BELANGRIJK NIET VERGETEN AUB IS BEST WEL LEUK DANKUWEL https://media.discordapp.net/attachments/366103136877936650/890899315097206794/450.png
+   
+    Dit ga ik later netjes neerzetten, maar ik ga sliders gebruiken inplaats van tekstvelden voor gridgeneratie.
+    Maakt het iets makkelijker qua foutmeldingen want *iemand* gaat waarschijnlijk tekst invoeren in plaats van nummers-->
+
+    <script lang="text/javascript" src='grid.js'></script>
 </body>
 </html>

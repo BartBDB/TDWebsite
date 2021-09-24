@@ -1,30 +1,19 @@
-
 body{
-    background: white;
+    background: rgb(50,50,50);
 }
 
-#HTMLColumns, #HTMLRows{
-    margin-bottom: 4px;
+#grid{
+    background: green;
+    width: 500px;
+    height: 500px;
+    position:relative;
 }
 
-/* canvas{
-    background: rgb(255, 181, 113);
-} */
+.tile{
+  background-color: darkgray;
+  position:absolute;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+}
 
-:root {
-    --grid-cols: 1;
-    --grid-rows: 1;
-  }
-  
-  #container {
-    display: grid;
-    grid-gap: 1em;
-    grid-template-rows: repeat(var(--grid-rows), 1fr);
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
-  }
-  
-  .grid-item {
-    padding: 1em;
-    border: 1px solid #ddd;
-    text-align: center;
-  }
