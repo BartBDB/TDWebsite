@@ -28,7 +28,7 @@ function clickSelectors(){
             if(e.target.id != 'selectorHolder'){
                 activeSelector = e.target.id;
                 for (let i=0;i<selectorHolder.children.length;i++){
-                    selectorHolder.children[i].style.borderWidth = '4px'
+                    selectorHolder.children[i].style.borderSize = '10px'
                 }
                 e.target.style.borderWidth = "2px";
             }

@@ -1,12 +1,85 @@
 body{
-  background: rgb(50,50,50);
+  background-image: url('images/BG.png');
+  background-position: center;
 }
 
 #grid{
-  background: green;
   width: 550px;
   height: 550px;
   position:relative;
+  background: url('images/GridBackground.png');
+}
+
+#gridbutton{
+  margin-bottom: 10px;
+}
+
+#heightfield {
+  -webkit-appearance: none;
+  width: 500px;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+#heightfield:hover {
+  opacity: 1;
+}
+
+#heightfield::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 25px;
+  border: 0;
+  background: url('images/SliderIcon.png');
+  cursor: pointer;
+}
+
+#heightfield::-moz-range-thumb {
+  width: 20px;
+  height: 25px;
+  border: 0;
+  background: url('images/SliderIcon.png');
+  cursor: pointer;
+}
+
+#widthfield {
+  -webkit-appearance: none;
+  width: 500px;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+#widthfield:hover {
+  opacity: 1;
+}
+
+#widthfield::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 25px;
+  border: 0;
+  background: url('images/SliderIcon.png');
+  cursor: pointer;
+}
+
+#widthfield::-moz-range-thumb {
+  width: 20px;
+  height: 25px;
+  border: 0;
+  background: url('images/SliderIcon.png');
+  cursor: pointer;
 }
 
 .tile{
@@ -27,29 +100,35 @@ body{
 
 yo throw this shit into JS sometime
 #selectorHolder{
-  background-color: lime;
+  border-color: lime;
 }
 
 #spawnpoint{
   background-color: red;
+  margin-bottom: 5px;
 }
 
 #default{
   background-color: darkgray;
+  margin-bottom: 5px;
 }
 
 #path{
   background-color: darkorchid;
+  margin-bottom: 5px;
 }
 
 #buildable{
   background-color: green;
+  margin-bottom: 5px;
 }
 
 #waypoint{
   background-color: cyan;
+  margin-bottom: 5px;
 }
 
 #deselect{
   background-color: tomato;
+  margin-bottom: 5px;
 }
