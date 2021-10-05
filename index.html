@@ -9,17 +9,17 @@
     <title>Level Editor</title>    
 </head>
 <body>
-    <input type='text' id='widthfield' value='0'></input>
-    <!-- <input type='range' min='0' max='100' value='0' class='slider' id='widthfield'></input> -->
-    <!-- <p>Width: <span id="widthfieldnumber"></span></p> -->
-    <input type='text' id='heightfield' value='0'></input>
-    <!-- <input type='range' min='0' max='100' value='0' class='slider' id='heightfield'></input> -->
-    <!-- <p>Height: <span id="heightfieldnumber"></span></p> -->
+    <!--<input type='text' id='widthfield' value='0'></input> old input field-->
+    <input type='range' min='1' max='20' value='1' class='slider' id='widthfield'></input>
+    <p style="color:white">Width: <span id="widthfieldnumber"></span></p>
+    <!--<input type='text' id='heightfield' value='0'></input> old input field-->
+    <input type='range' min='1' max='20' value='1' class='slider' id='heightfield'></input>
+    <p style="color:white">Height: <span id="heightfieldnumber"></span></p>
     <button id='gridbutton'>Generate grid</button>
-    <div id='grid'>
-    </div>
+    <div id='selectorHolder'></div>
+    <div id='grid'></div> <!-- And this is where the magic happens, folks-->
 
-    <!--<script>
+    <script>
         var slider = document.getElementById("widthfield");
         var output = document.getElementById("widthfieldnumber");
         output.innerHTML = slider.value;
@@ -37,11 +37,12 @@
         }
     </script> 
     
+    <!--
     SLIDER IMAGE BELANGRIJK NIET VERGETEN AUB IS BEST WEL LEUK DANKUWEL https://media.discordapp.net/attachments/366103136877936650/890899315097206794/450.png
-   
+    (komt later html werkt lekker mee weer WORD ER GEK VAN)
     Dit ga ik later netjes neerzetten, maar ik ga sliders gebruiken inplaats van tekstvelden voor gridgeneratie.
     Maakt het iets makkelijker qua foutmeldingen want *iemand* gaat waarschijnlijk tekst invoeren in plaats van nummers-->
 
-    <script lang="text/javascript" src='grid.js'></script>
+    <script lang="text/javascript" src='grid.js'></script> <!-- Oh yeah we actually need to get the grid workin' don't we -->
 </body>
 </html>

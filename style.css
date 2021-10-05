@@ -1,12 +1,12 @@
 body{
-    background: rgb(50,50,50);
+  background: rgb(50,50,50);
 }
 
 #grid{
-    background: green;
-    width: 500px;
-    height: 500px;
-    position:relative;
+  background: green;
+  width: 550px;
+  height: 550px;
+  position:relative;
 }
 
 .tile{
@@ -17,3 +17,39 @@ body{
   border-style: solid;
 }
 
+.selector{
+  background-color: grey;
+  position: absolute;
+  border-style: dashed;
+  border-color: black;
+}
+
+
+yo throw this shit into JS sometime
+#selectorHolder{
+  background-color: lime;
+}
+
+#spawnpoint{
+  background-color: red;
+}
+
+#default{
+  background-color: darkgray;
+}
+
+#path{
+  background-color: darkorchid;
+}
+
+#buildable{
+  background-color: green;
+}
+
+#waypoint{
+  background-color: cyan;
+}
+
+#deselect{
+  background-color: tomato;
+}
