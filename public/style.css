@@ -1,5 +1,5 @@
 body{
-  background-image: url('images/BG.png');
+  background-image: url('BG.png');
   background-position: center;
 }
 
@@ -7,7 +7,7 @@ body{
   width: 550px;
   height: 550px;
   position:relative;
-  background: url('images/GridBackground.png');
+  background: url('GridBackground.png');
 }
 
 #gridbutton{
@@ -36,7 +36,7 @@ body{
   width: 20px;
   height: 25px;
   border: 0;
-  background: url('images/SliderIcon.png');
+  background: url('SliderIcon.png');
   cursor: pointer;
 }
 
@@ -44,7 +44,7 @@ body{
   width: 20px;
   height: 25px;
   border: 0;
-  background: url('images/SliderIcon.png');
+  background: url('SliderIcon.png');
   cursor: pointer;
 }
 
@@ -70,7 +70,7 @@ body{
   width: 20px;
   height: 25px;
   border: 0;
-  background: url('images/SliderIcon.png');
+  background: url('SliderIcon.png');
   cursor: pointer;
 }
 
@@ -78,7 +78,7 @@ body{
   width: 20px;
   height: 25px;
   border: 0;
-  background: url('images/SliderIcon.png');
+  background: url('SliderIcon.png');
   cursor: pointer;
 }
 
