@@ -18,9 +18,9 @@ app.get('/',(req,res) => {
 io.on('connection',(socket) => {
     //console.log('new connection')
     socket.on('message sent', (msg) => {
-        //console.log(msg)
+        console.log(msg)
         io.emit('respond', msg)
-        fs.writeFile('message.txt', msg, (err) => {
+        fs.writeFile('level.json', msg, (err) => {
             if (err) throw err;
             console.log('The file has been saved!');
           });
