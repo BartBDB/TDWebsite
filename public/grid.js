@@ -8,7 +8,9 @@ let borderSize = 2;
 let activeSelector = 'default'
 
 //server stuff aaaaaaaaa
-//let socket = io();
+let socket = io();
+let JSONFILE
+//oh apparently this doesnt work anymore LOL FUCK ME
 
 button.addEventListener("click", ()=>{
     clearGrid();
@@ -17,8 +19,8 @@ button.addEventListener("click", ()=>{
 
 downloadbtn.addEventListener("click", (e)=>{
     downloadGrid()
-    //e.preventDefault();
-    //socket.emit('message sent',input.value);
+    e.preventDefault();
+    socket.emit('save level',JSONFILE);//here we send the JSONFILE string to the server (see index.js)
 })
 
 addTileSelector("spawnpoint")
@@ -59,7 +61,7 @@ function downloadGrid(){
         tileData.push(type)
     }
     console.log(tileData)
-    let JSONFILE = JSON.stringify(tileData)
+    JSONFILE = JSON.stringify(tileData)
     console.log(JSONFILE)
 }
 
