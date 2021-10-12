@@ -1,26 +1,67 @@
+//grid stuff
 let button = document.getElementById('gridbutton')
+let downloadbtn = document.getElementById('download')
 let divHolder = document.getElementById('grid')
 let selectorHolder = document.getElementById('selectorHolder')
-
 let tileSize = 25;
 let borderSize = 2;
-
 let activeSelector = 'default'
+
+//server stuff aaaaaaaaa
+//let socket = io();
 
 button.addEventListener("click", ()=>{
     clearGrid();
     buildGrid(getGridDimensions());
 });
 
-addTileSelector("default")
+downloadbtn.addEventListener("click", (e)=>{
+    downloadGrid()
+    //e.preventDefault();
+    //socket.emit('message sent',input.value);
+})
+
 addTileSelector("spawnpoint")
 addTileSelector("path")
 addTileSelector("buildable")
 addTileSelector("waypoint")
-addTileSelector("deselect")
+addTileSelector("endpoint")
+addTileSelector("default")
 
 clickGridTiles();
 clickSelectors();
+
+function downloadGrid(){
+    let tileData = []
+    for (let i = 0; i < divHolder.children.length; i++){
+        let color = divHolder.children[i].style.backgroundColor
+        let type;
+        switch(color){      
+            case "red":
+                type = "spawnpoint"
+            break
+            case "darkorchid":
+                type = "path"
+            break
+            case "green":
+                type = "buildable"
+            break
+            case "cyan":
+                type = "waypoint"
+            break          
+            case "yellow":
+                type = "endpoint"
+            break
+            case "darkgrey":
+                type = "default"
+            break
+        }
+        tileData.push(type)
+    }
+    console.log(tileData)
+    let JSONFILE = JSON.stringify(tileData)
+    console.log(JSONFILE)
+}
 
 function clickSelectors(){
     if(selectorHolder.children.length > 0){
@@ -60,7 +101,7 @@ function buildGrid(dimensions){
         tile.style.borderWidth = borderSize+'px';
         tile.style.left = (i % dimensions.w) * (tileSize + borderSize) + 'px';
         tile.style.top = Math.floor(i / dimensions.w) * (tileSize + borderSize) + 'px';
-
+        tile.style.backgroundColor = 'darkgrey'
         divHolder.appendChild(tile);
     }
 }
@@ -79,7 +120,7 @@ function getGridDimensions(){
     return dimensions
 }
 
-let colorDict = {spawnpoint:'red',default:'darkgrey',path:'darkorchid',waypoint:'cyan',buildable:'green',deselect:'tomato'}
+let colorDict = {spawnpoint:'red',path:'darkorchid',buildable:'green',waypoint:'cyan',endpoint:'yellow',default:'darkgrey'}
 
 function clickGridTiles(){
     divHolder.addEventListener('click', (e)=>{
@@ -88,6 +129,21 @@ function clickGridTiles(){
         }
     })
 }
+
+//Stinky usable code
+/*
+let socket = io(); 
+
+const form = document.getElementById('form')
+const input = document.getElementById('input')
+
+form.addEventListener("submit",(e) => {
+    e.preventDefault();
+    //console.log(input.value)
+    socket.emit('message sent',input.value);
+    input.value = "";
+})
+*/
 
 //Stinky outdated code
 
