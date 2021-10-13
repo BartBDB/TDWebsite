@@ -16,7 +16,7 @@ app.get('/',(req,res) => {
     res.sendFile('public/index.html');
 })
 
-// yo this is very very important very very very soon
+// Anyone up for some JSON WRITING?
 io.on('connection',(socket) => {
     //console.log('new connection')
     socket.on('save level', (msg) => {

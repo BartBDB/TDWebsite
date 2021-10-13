@@ -91,8 +91,6 @@ function addTileSelector(name){
     tileSelector.classname = 'selector';
     tileSelector.style.width = size + 'px';
     tileSelector.style.height = size + 'px';
-    
-    let image = "url('" + name + ".png')";
     tileSelector.style.left = selectorHolder.children.length * (size + margin) + margin + "px";
     selectorHolder.appendChild(tileSelector);
 }
