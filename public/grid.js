@@ -6,6 +6,7 @@ let selectorHolder = document.getElementById('selectorHolder')
 let tileSize = 25;
 let borderSize = 2;
 let activeSelector = 'spawnpoint'
+let tileData = []
 
 //server stuff aaaaaaaaa
 let socket = io();
@@ -33,7 +34,6 @@ clickGridTiles();
 clickSelectors();
 
 function downloadGrid(){
-    let tileData = []
     for (let i = 0; i < divHolder.children.length; i++){
         let color = divHolder.children[i].style.backgroundColor
         let type;
@@ -57,7 +57,7 @@ function downloadGrid(){
                 type = "default"
             break
         }
-        tileData.push(type)       
+        tileData.push(type)     
     }   
     //console.log(tileData)
     const JSONDATA = {
@@ -66,7 +66,7 @@ function downloadGrid(){
         tiles: tileData
     }
     JSONFILE = JSON.stringify(JSONDATA, null, 2) //uhhhh this puts every tile in the tileData array on a seperate line, should probably fix this? might work like this though
-    console.log(JSONFILE)
+    console.log(JSONFILE) //there seems to be a very odd bug where sometimes a default tile is thrown into slot 0 of the array? Dunno whats up with that one or how it even triggers in the first place.
 }
 
 function clickSelectors(){

@@ -4,8 +4,8 @@ body{
 }
 
 #grid{
-  width: 550px;
-  height: 550px;
+  width: 825px;
+  height: 825px;
   position:relative;
   background: url('images/GridBackground.png');
 }
@@ -97,7 +97,6 @@ body{
   border-color: black;
 }
 
-
 yo throw this shit into JS sometime
 #selectorHolder{
   border-color: lime;
@@ -131,4 +130,8 @@ yo throw this shit into JS sometime
 #default{
   background-color: darkgray;
   margin-bottom: 5px;
+}
+
+#download{
+  margin-top: 5px;
 }
