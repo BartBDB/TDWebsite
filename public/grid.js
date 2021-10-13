@@ -10,7 +10,6 @@ let activeSelector = 'default'
 //server stuff aaaaaaaaa
 let socket = io();
 let JSONFILE
-//oh apparently this doesnt work anymore LOL FUCK ME
 
 button.addEventListener("click", ()=>{
     clearGrid();
@@ -20,7 +19,7 @@ button.addEventListener("click", ()=>{
 downloadbtn.addEventListener("click", (e)=>{
     downloadGrid()
     e.preventDefault();
-    socket.emit('save level',JSONFILE);//here we send the JSONFILE string to the server (see index.js)
+    socket.emit('save level',JSONFILE);//here we send the JSONFILE string to the server (see ../index.js)
 })
 
 addTileSelector("spawnpoint")
@@ -59,9 +58,17 @@ function downloadGrid(){
             break
         }
         tileData.push(type)
-    }
+        
+    }   
+    //tileData.unshift(document.getElementById('heightfield').value)//this gets pushed to the start of the array, so height first. W-H
+    //tileData.unshift(document.getElementById('widthfield').value)
     console.log(tileData)
-    JSONFILE = JSON.stringify(tileData)
+    const JSONDATA = {
+        width: document.getElementById('widthfield').value,
+        height: document.getElementById("heightfield").value,
+        tiledata: tileData
+    }
+    JSONFILE = JSON.stringify(JSONDATA, null, 2)
     console.log(JSONFILE)
 }
 
