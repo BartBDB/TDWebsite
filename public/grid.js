@@ -5,7 +5,7 @@ let divHolder = document.getElementById('grid')
 let selectorHolder = document.getElementById('selectorHolder')
 let tileSize = 25;
 let borderSize = 2;
-let activeSelector = 'default'
+let activeSelector = 'spawnpoint'
 
 //server stuff aaaaaaaaa
 let socket = io();
@@ -65,7 +65,7 @@ function downloadGrid(){
         height: document.getElementById("heightfield").value,
         tiles: tileData
     }
-    JSONFILE = JSON.stringify(JSONDATA, null, 2) //uhhhh this puts every tile in the array on a seperate line, should probably fix this? might work like this though
+    JSONFILE = JSON.stringify(JSONDATA, null, 2) //uhhhh this puts every tile in the tileData array on a seperate line, should probably fix this? might work like this though
     console.log(JSONFILE)
 }
 

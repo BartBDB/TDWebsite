@@ -121,3 +121,4 @@ dist
 package.json
 package-lock.json
 config.json
+level.json
