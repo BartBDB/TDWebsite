@@ -19,7 +19,7 @@ button.addEventListener("click", ()=>{
 downloadbtn.addEventListener("click", (e)=>{
     downloadGrid()
     e.preventDefault();
-    socket.emit('save level',JSONFILE);//here we send the JSONFILE string to the server (see ../index.js)
+    socket.emit('save level',JSONFILE); //here we send the JSONFILE string to the server (see ../index.js)
 })
 
 addTileSelector("spawnpoint")
@@ -57,18 +57,15 @@ function downloadGrid(){
                 type = "default"
             break
         }
-        tileData.push(type)
-        
+        tileData.push(type)       
     }   
-    //tileData.unshift(document.getElementById('heightfield').value)//this gets pushed to the start of the array, so height first. W-H
-    //tileData.unshift(document.getElementById('widthfield').value)
-    console.log(tileData)
+    //console.log(tileData)
     const JSONDATA = {
         width: document.getElementById('widthfield').value,
         height: document.getElementById("heightfield").value,
-        tiledata: tileData
+        tiles: tileData
     }
-    JSONFILE = JSON.stringify(JSONDATA, null, 2)
+    JSONFILE = JSON.stringify(JSONDATA, null, 2) //uhhhh this puts every tile in the array on a seperate line, should probably fix this? might work like this though
     console.log(JSONFILE)
 }
 
@@ -138,53 +135,3 @@ function clickGridTiles(){
         }
     })
 }
-
-//Stinky usable code
-/*
-let socket = io(); 
-
-const form = document.getElementById('form')
-const input = document.getElementById('input')
-
-form.addEventListener("submit",(e) => {
-    e.preventDefault();
-    //console.log(input.value)
-    socket.emit('message sent',input.value);
-    input.value = "";
-})
-*/
-
-//Stinky outdated code
-
-// button.addEventListener("click", ()=>{
-//     let width = document.getElementById('widthfield').value
-//     let height = document.getElementById('heightfield').value
-  
-//     let divHolder = document.getElementById('grid')
-
-//     let tilesize = 25; //PROBABLY MAYBE PERHAPS MAYHAPS TODO: Change size according to grid
-//     let borderSize = 2;
-//     let tileTotal = height * width;
-
-//     for (let i = divHolder.children.length-1; i > 0; i--) //remove tiles before generating 'em
-//     {
-//         divHolder.removeChild(divHolder.children[i])
-//     }
-
-//     //console.log(tileTotal);
-//     for (let i = 0; i < tileTotal; i++) //make tiles
-//     {
-//         let tile = document.createElement("div");
-//         tile.className = 'tile';
-//         tile.style.width = tilesize+'px';
-//         tile.style.height = tilesize+'px';
-//         tile.style.borderWidth = borderSize+'px';
-
-//         tile.style.left = (i % width) * (tilesize + borderSize) + 'px';
-//         //console.log(newDiv.style.left);
-
-//         tile.style.top = Math.floor(i / width) * (tilesize + borderSize) + 'px';
-
-//         divHolder.appendChild(tile);
-//     }
-// })

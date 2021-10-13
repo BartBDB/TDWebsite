@@ -1,3 +1,5 @@
+//dont open this file if you dont want to suffer major headaches/nausia/death
+
 const express = require('express')
 const app = express();
 
