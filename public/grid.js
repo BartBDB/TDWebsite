@@ -21,6 +21,7 @@ downloadbtn.addEventListener("click", (e)=>{
     downloadGrid()
     e.preventDefault();
     socket.emit('save level',JSONFILE); //here we send the JSONFILE string to the server (see ../index.js)
+    window.open('/download'); //5 F$%#&NG DAYS OF MY LIFE WASTED
 })
 
 addTileSelector("spawnpoint")
