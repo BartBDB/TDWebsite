@@ -13,11 +13,11 @@ const io = new Server(server)
 app.use(express.static('public'))
 
 app.get('/',(req,res) => {
-    res.sendFile('public/index.html');
+    res.sendFile('public/index.html'); //index.html
 })
 
 app.get('/download',function(req,res){
-    res.download(__dirname +'/level.json','level.json');
+    res.download(__dirname +'/level.json','level.json'); //index.html/download
 })
 
 // Anyone up for some JSON WRITING?

@@ -49,7 +49,7 @@ function downloadGrid(){
                 type = "buildable"
             break
             case "cyan":
-                type = "waypoint"
+                type = "waypoint"//, + waypointnumber
             break          
             case "yellow":
                 type = "endpoint"
@@ -131,6 +131,10 @@ function clickGridTiles(){
     divHolder.addEventListener('click', (e)=>{
         if (e.target.getAttribute('id')!='grid'){
             e.target.style.backgroundColor = colorDict[activeSelector];
+            /*
+            if e.target === "waypoint"
+                do waypoint junk
+            */
         }
     })
 }
