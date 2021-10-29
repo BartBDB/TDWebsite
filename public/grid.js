@@ -7,7 +7,6 @@ let tileSize = 25;
 let borderSize = 2;
 let activeSelector = 'spawnpoint'
 let tileData = []
-let waypointnumber = 0
 
 //server stuff aaaaaaaaa
 let socket = io();
@@ -19,7 +18,7 @@ button.addEventListener("click", ()=>{
 });
 
 downloadbtn.addEventListener("click", (e)=>{
-    downloadGrid()
+    downloadGrid() //technically unoptimized(?) but it doesn't use that many resources anyway so I technically don't care.
     if (tileData.length >= 1){
     e.preventDefault();
     socket.emit('save level',JSONFILE); //here we send the JSONFILE string to the server (see ../index.js)
@@ -43,45 +42,32 @@ function downloadGrid(){
         let newTile
         switch(color){      
             case "red":
-                //type = '{name: "spawnpoint"}'
-                //type = "spawnpoint"
                 newTile = {
                     name: "spawnpoint",
                 }         
             break
             case "darkorchid":
-                //type = '{name: "path"}'
-                //type = "path"
                 newTile = {
                     name: "path",
                 }        
             break
             case "green":
-                //type = '{name: "buildable"}'
-                //type = "buildable"
                 newTile = {
                     name: "buildable",
                 }        
             break
             case "cyan":
-               // type = '{name: "waypoint", count: + waypointnumber}'
-                //type = "waypoint"
-
                 newTile = {
                     name: "waypoint",
-                    count: waypointnumber
+                    //count: document.getElementById("waypoint").value
                 }            
             break          
             case "yellow":
-                //type = '{name: "endpoint"}'
-                //type = "endpoint"
                 newTile = {
                     name: "endpoint",
                 }        
             break
             case "darkgrey":
-                //type = '{name: "default"}'
-                //type = "default"
                 newTile = {
                     name: "default",
                 }        
