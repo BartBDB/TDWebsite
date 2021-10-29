@@ -123,7 +123,6 @@ yo throw this shit into JS sometime
 #waypoint{
   background-color: cyan;
   margin-bottom: 5px;
-  
 }
 
 #endpoint{
@@ -133,7 +132,7 @@ yo throw this shit into JS sometime
 
 #default{
   background-color: darkgray;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 #download{

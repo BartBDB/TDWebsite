@@ -7,6 +7,7 @@ let tileSize = 25;
 let borderSize = 2;
 let activeSelector = 'spawnpoint'
 let tileData = []
+let waypointnumber = 0
 
 //server stuff aaaaaaaaa
 let socket = io();
@@ -19,9 +20,11 @@ button.addEventListener("click", ()=>{
 
 downloadbtn.addEventListener("click", (e)=>{
     downloadGrid()
+    if (tileData.length >= 1){
     e.preventDefault();
     socket.emit('save level',JSONFILE); //here we send the JSONFILE string to the server (see ../index.js)
     window.open('/download'); //5 F$%#&NG DAYS OF MY LIFE WASTED
+    }
 })
 
 addTileSelector("spawnpoint")
@@ -37,37 +40,65 @@ clickSelectors();
 function downloadGrid(){
     for (let i = 0; i < divHolder.children.length; i++){
         let color = divHolder.children[i].style.backgroundColor
-        let type;
+        let newTile
         switch(color){      
             case "red":
-                type = "spawnpoint"
+                //type = '{name: "spawnpoint"}'
+                //type = "spawnpoint"
+                newTile = {
+                    name: "spawnpoint",
+                }         
             break
             case "darkorchid":
-                type = "path"
+                //type = '{name: "path"}'
+                //type = "path"
+                newTile = {
+                    name: "path",
+                }        
             break
             case "green":
-                type = "buildable"
+                //type = '{name: "buildable"}'
+                //type = "buildable"
+                newTile = {
+                    name: "buildable",
+                }        
             break
             case "cyan":
-                type = "waypoint"//, + waypointnumber
+               // type = '{name: "waypoint", count: + waypointnumber}'
+                //type = "waypoint"
+
+                newTile = {
+                    name: "waypoint",
+                    count: waypointnumber
+                }            
             break          
             case "yellow":
-                type = "endpoint"
+                //type = '{name: "endpoint"}'
+                //type = "endpoint"
+                newTile = {
+                    name: "endpoint",
+                }        
             break
             case "darkgrey":
-                type = "default"
+                //type = '{name: "default"}'
+                //type = "default"
+                newTile = {
+                    name: "default",
+                }        
             break
-        }
-        tileData.push(type)     
-    }   
-    //console.log(tileData)
-    const JSONDATA = {
-        width: document.getElementById('widthfield').value,
-        height: document.getElementById("heightfield").value,
-        tiles: tileData
+        }    
+        tileData.push(newTile) 
     }
-    JSONFILE = JSON.stringify(JSONDATA, null, 2) //uhhhh this puts every tile in the tileData array on a seperate line, should probably fix this? might work like this though
-    console.log(JSONFILE) //there seems to be a very odd bug where sometimes a default tile is thrown into slot 0 of the array? Dunno whats up with that one or how it even triggers in the first place.
+    if (tileData.length >= 1){   
+    //console.log(tileData)
+        const JSONDATA = {
+            width: document.getElementById('widthfield').value,
+            height: document.getElementById("heightfield").value,
+            tiles: tileData
+        }
+        JSONFILE = JSON.stringify(JSONDATA, null, 2) //uhhhh this puts every tile in the tileData array on a seperate line, should probably fix this? might work like this though
+        console.log(JSONFILE) //there seems to be a very odd bug where sometimes a default tile is thrown into slot 0 of the array? Dunno whats up with that one or how it even triggers in the first place.
+    }
 }
 
 function clickSelectors(){
@@ -76,7 +107,7 @@ function clickSelectors(){
             if(e.target.id != 'selectorHolder'){
                 activeSelector = e.target.id;
                 for (let i=0;i<selectorHolder.children.length;i++){
-                    selectorHolder.children[i].style.borderSize = '10px'
+                    selectorHolder.children[i].style.borderWidth = '10px'
                 }
                 e.target.style.borderWidth = "2px";
             }
@@ -131,10 +162,6 @@ function clickGridTiles(){
     divHolder.addEventListener('click', (e)=>{
         if (e.target.getAttribute('id')!='grid'){
             e.target.style.backgroundColor = colorDict[activeSelector];
-            /*
-            if e.target === "waypoint"
-                do waypoint junk
-            */
         }
     })
 }

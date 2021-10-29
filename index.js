@@ -1,5 +1,3 @@
-//dont open this file if you dont want to suffer major headaches/nausia/death
-
 const express = require('express')
 const app = express();
 
@@ -24,7 +22,7 @@ app.get('/download',function(req,res){
 io.on('connection',(socket) => {
     //console.log('new connection')
     socket.on('save level', (msg) => {
-        console.log(msg)
+        //console.log(msg)
         io.emit('respond', msg)
         fs.writeFile('level.json', msg, (err) => { //and here is where we write to the JSON file
             if (err) throw err;
