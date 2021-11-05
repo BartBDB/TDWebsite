@@ -97,14 +97,6 @@ body{
   border-color: black;
 }
 
-yo throw this shit into JS sometime
-#selectorHolder{
-  position: absolute;
-  border-color: lime;
-  border-style: solid;
-  border-width: 5px;
-}
-
 #spawnpoint{
   background-color: red;
   margin-bottom: 5px;
@@ -123,6 +115,7 @@ yo throw this shit into JS sometime
 #waypoint{
   background-color: cyan;
   margin-bottom: 5px;
+
 }
 
 #endpoint{
@@ -137,4 +130,7 @@ yo throw this shit into JS sometime
 
 #download{
   margin-top: 5px;
+  background: url('images/EmergencyMeeting.png');
+  width: 203px;
+  height: 154px;
 }

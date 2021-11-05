@@ -8,7 +8,7 @@ let borderSize = 2;
 let activeSelector = 'spawnpoint'
 let tileData = []
 
-//server stuff aaaaaaaaa
+//server stuff
 let socket = io();
 let JSONFILE
 
@@ -21,8 +21,11 @@ downloadbtn.addEventListener("click", (e)=>{
     downloadGrid() //technically unoptimized(?) but it doesn't use that many resources anyway so I technically don't care.
     if (tileData.length >= 1){
     e.preventDefault();
+    downloadbtn.style.background = "url('images/EmergencyMeetingPressed.png')"
     socket.emit('save level',JSONFILE); //here we send the JSONFILE string to the server (see ../index.js)
     window.open('/download'); //5 F$%#&NG DAYS OF MY LIFE WASTED
+    var x = document.getElementById("myAudio"); 
+    x.play()
     }
 })
 
@@ -46,7 +49,7 @@ function downloadGrid(){
                     name: "spawnpoint",
                 }         
             break
-            case "darkorchid":
+            case "darkorchid": //also known as 'dark purple'
                 newTile = {
                     name: "path",
                 }        
@@ -82,8 +85,8 @@ function downloadGrid(){
             height: document.getElementById("heightfield").value,
             tiles: tileData
         }
-        JSONFILE = JSON.stringify(JSONDATA, null, 2) //uhhhh this puts every tile in the tileData array on a seperate line, should probably fix this? might work like this though
-        console.log(JSONFILE) //there seems to be a very odd bug where sometimes a default tile is thrown into slot 0 of the array? Dunno whats up with that one or how it even triggers in the first place.
+        JSONFILE = JSON.stringify(JSONDATA, null, 2)
+        console.log(JSONFILE) //there seems to be a very odd bug where sometimes a default tile is thrown into slot 0 of the array? Dunno whats up with that one or how it even triggers in the first place. (Just reload the page if you need a different grid)
     }
 }
 
@@ -92,6 +95,7 @@ function clickSelectors(){
         selectorHolder.addEventListener('click',(e)=>{
             if(e.target.id != 'selectorHolder'){
                 activeSelector = e.target.id;
+                activeSelector.style.border = 'dashed'
                 for (let i=0;i<selectorHolder.children.length;i++){
                     selectorHolder.children[i].style.borderWidth = '10px'
                 }
@@ -151,3 +155,5 @@ function clickGridTiles(){
         }
     })
 }
+
+//todo: add dropdown menu to waypoint tiles
