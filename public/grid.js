@@ -95,7 +95,6 @@ function clickSelectors(){
         selectorHolder.addEventListener('click',(e)=>{
             if(e.target.id != 'selectorHolder'){
                 activeSelector = e.target.id;
-                activeSelector.style.border = 'dashed'
                 for (let i=0;i<selectorHolder.children.length;i++){
                     selectorHolder.children[i].style.borderWidth = '10px'
                 }
@@ -155,5 +154,3 @@ function clickGridTiles(){
         }
     })
 }
-
-//todo: add dropdown menu to waypoint tiles
