@@ -1,6 +1,5 @@
 body{
   background-color: rgb(34, 36, 35);
-  background-position: center;
 }
 
 #grid{
@@ -115,7 +114,6 @@ body{
 #waypoint{
   background-color: cyan;
   margin-bottom: 5px;
-
 }
 
 #endpoint{
