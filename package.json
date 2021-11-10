@@ -4,5 +4,9 @@
     "fs": "^0.0.1-security",
     "nodemon": "^2.0.15",
     "socket.io": "^4.3.2"
+  },
+  "scripts": {
+    "start": "index.js"
   }
 }
+
